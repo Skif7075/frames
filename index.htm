@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            var sliderUI = $( "#slider" );
+            $.ajax({
+                type: 'GET',
+                contentType: 'application/json',
+                url: '/images',
+                success: function (data) {
+
+                    sliderUI.slider({
+                        min: 1,
+                        max: data[0]-1,
+                        value: 1,
+                        slide: function ( event, ui ){
+                            $( "#amount" ).val(ui.value);
+                            $("#frame").attr("src",'data:image/png;base64,'+data[ui.value]);
+                        }
+                    });
+                    $("#frame").attr("src",'data:image/png;base64,'+data[1]);
+                    $( "#amount" ).val(sliderUI.slider( "value"));
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<img id="frame"/>
+<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+<div id="slider"></div>
+
+</body>
+</html>
