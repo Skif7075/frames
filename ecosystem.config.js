@@ -22,7 +22,7 @@ module.exports = {
       ref  : "origin/master",
       repo : "git@github.com:Skif7075/frames.git",
       path : "/srv/mystand/car360/frames",
-      "post-deploy": "source ~/.profile && pm2 startOrRestart ecosystem.config.js --env production"
+      "post-deploy": "source ~/.profile"
     }
   }
 }
