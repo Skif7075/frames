@@ -21,8 +21,7 @@ module.exports = {
       host : "mystand.ru",
       ref  : "origin/master",
       repo : "git@github.com:Skif7075/frames.git",
-      path : "/srv/mystand/car360/frames",
-      "post-deploy" : "npm install && pm2 startOrRestart ecosystem.json --env production"
+      path : "/srv/mystand/car360/frames"
     }
   }
 }
