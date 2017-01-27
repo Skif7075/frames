@@ -12,8 +12,8 @@
                 type: 'GET',
                 contentType: 'application/json',
                 url: '/images',
-                success: function (data) {
-
+                success: function (resp) {
+                    var data = JSON.parse(resp);
                     sliderUI.slider({
                         min: 1,
                         max: data[0]-1,
